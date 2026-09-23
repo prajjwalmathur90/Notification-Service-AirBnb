@@ -11,8 +11,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bullmq": "^6.3.8",
     "dotenv": "^16.4.7",
     "express": "^5.1.0",
+    "handlebars": "^4.7.9",
+    "ioredis": "^6.0.0",
+    "nodemailer": "^10.0.10",
     "uuid": "^11.1.0",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
