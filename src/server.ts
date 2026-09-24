@@ -28,5 +28,5 @@ app.use(genericErrorHandler);
 app.listen(serverConfig.PORT, async () => {
   logger.info(`Server is running on http://localhost:${serverConfig.PORT}`);
   setupMailerWorker();
-  logger.info("Mailer worker has been initialized");
+  console.log("Mailer worker has been initialized");
 });

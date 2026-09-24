@@ -5,7 +5,7 @@ import { internalServerError } from "../utils/errors/app.error";
 
 export async function sendMail(to: string, subject: string, body: string) {
   try {
-    transporter.sendMail({
+    await transporter.sendMail({
       from: serverConfig.MAIL_USER,
       to,
       subject,
