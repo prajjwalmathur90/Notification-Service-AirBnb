@@ -3,6 +3,9 @@ import { NotificationDto } from "../dtos/notification.dto";
 import { MAILER_QUEUE } from "../queues/mailer.queue";
 import { getRedisConnectionObj } from "../config/redis.config";
 import { MAILER_PAYLOAD } from "../producers/email.producer";
+import { renderMailTemplate } from "../templates/templates.handler";
+import { sendMail } from "../services/mailer.service";
+import logger from "../config/logger.config";
 
 export const setupMailerWorker = () => {
   const emailProcessor = new Worker<NotificationDto>(
@@ -12,7 +15,18 @@ export const setupMailerWorker = () => {
         throw new Error("Invalid job");
       }
 
-      // call the service layer from here
+      const payload = job.data;
+
+      const emailContent = await renderMailTemplate(
+        payload.templateId,
+        payload.params,
+      );
+
+      await sendMail(payload.to, payload.subject, emailContent);
+
+      logger.info(
+        `Email to ${payload.to} processed successfully with subject : ${payload.subject}`,
+      );
     },
     {
       connection: getRedisConnectionObj(),

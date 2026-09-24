@@ -1,8 +1,97 @@
-Hi {{name}}, 
-
-Welcome to {{appName}}
-We are excited to have you on board. Thanks for joining us! 
-
-If you have any questions, feel free to reach out to our support team. 
-
-Best regards,
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to {{appName}}</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    }
+    .header {
+      background-color: #6366f1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      color: #ffffff;
+      margin: 0;
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .content {
+      padding: 40px 30px;
+      color: #334155;
+      line-height: 1.7;
+    }
+    .content p {
+      margin: 0 0 20px 0;
+      font-size: 16px;
+    }
+    .button-container {
+      text-align: center;
+      margin: 35px 0;
+    }
+    .button {
+      background-color: #6366f1;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+    .button:hover {
+      background-color: #4f46e5;
+    }
+    .footer {
+      background-color: #f8fafc;
+      padding: 24px 30px;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+    }
+    .footer p {
+      margin: 0 0 8px 0;
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Welcome to {{appName}}!</h1>
+    </div>
+    <div class="content">
+      <p>Hi <strong>{{name}}</strong>,</p>
+      <p>We are absolutely thrilled to have you on board! {{appName}} is designed to help you get the most out of your experience, and we can't wait for you to explore all the features we've built for you.</p>
+      <p>To get started right away, why not head over to your dashboard and look around?</p>
+      
+      <div class="button-container">
+        <a href="#" class="button">Get Started Now</a>
+      </div>
+      
+      <p>If you have any questions or need a hand getting set up, our support team is always here to help. Just reply to this email, and we'll be right with you.</p>
+      <p>Welcome to the community!<br><br>Best regards,<br><strong>The {{appName}} Team</strong></p>
+    </div>
+    <div class="footer">
+      <p>&copy; 2026 {{appName}}. All rights reserved.</p>
+      <p>You received this email because you recently signed up for {{appName}}.</p>
+    </div>
+  </div>
+</body>
+</html>

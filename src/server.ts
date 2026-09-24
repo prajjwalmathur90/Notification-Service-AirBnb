@@ -7,7 +7,6 @@ import logger from "./config/logger.config";
 import { attachCorrelationIdMiddleware } from "./middlewares/correlation.middleware";
 import { routeNotFound } from "./middlewares/route-not-found.middleware";
 import { setupMailerWorker } from "./processors/email.processor";
-import { renderMailTemplate } from "./templates/templates.handler";
 const app = express();
 
 app.use(express.json());
