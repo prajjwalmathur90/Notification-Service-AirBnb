@@ -25,7 +25,8 @@ export const setupMailerWorker = () => {
       await sendMail(payload.to, payload.subject, emailContent);
 
       logger.info(
-        `Email to ${payload.to} processed successfully with subject : ${payload.subject}`,
+        `Email to ${payload.to} processed
+       successfully with subject : ${payload.subject}`,
       );
     },
     {
