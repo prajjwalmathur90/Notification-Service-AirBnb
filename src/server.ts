@@ -7,6 +7,7 @@ import logger from "./config/logger.config";
 import { attachCorrelationIdMiddleware } from "./middlewares/correlation.middleware";
 import { routeNotFound } from "./middlewares/route-not-found.middleware";
 import { setupMailerWorker } from "./processors/email.processor";
+import { renderMailTemplate } from "./templates/templates.handler";
 const app = express();
 
 app.use(express.json());
@@ -25,7 +26,7 @@ app.use("/api/v2", v2Router);
 app.use(routeNotFound);
 app.use(genericErrorHandler);
 
-app.listen(serverConfig.PORT, () => {
+app.listen(serverConfig.PORT, async () => {
   logger.info(`Server is running on http://localhost:${serverConfig.PORT}`);
   setupMailerWorker();
   logger.info("Mailer worker has been initialized");

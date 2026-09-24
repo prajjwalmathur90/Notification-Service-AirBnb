@@ -5,11 +5,15 @@ function connectRedis() {
   try {
     let connection: Redis;
 
-    const redisConfig = {
+    const redisConfig: any = {
       port: serverConfig.REDIS_PORT,
       host: serverConfig.REDIS_HOST,
       maxRetriesPerRequest: null,
     };
+
+    if (serverConfig.REDIS_PASSWORD) {
+      redisConfig.password = serverConfig.REDIS_PASSWORD;
+    }
 
     return () => {
       if (!connection) {
